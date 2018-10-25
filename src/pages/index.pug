@@ -1,0 +1,14 @@
+extends ../layout/root
+block title 
+	title Doc title
+block meta_k 
+	meta(name="keywords" content="meta_k .........text")
+block meta_d 
+	meta(name="description" content="meta_d ......text")
+
+block main
+	+b.slider#slider
+		+e.box-arrow
+			+e.arrow_prev(data-id="prev") <
+			+e.arrow_next(data-id="next") >
+		+e.list#slider__list

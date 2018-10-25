@@ -1,0 +1,86 @@
+$text: #2D3F86
+
+@keyframes slider__item_show
+	0%
+		bottom: -40px
+		opacity: 0.5
+	20%
+		bottom: 0
+		opacity: 1
+	100%
+		bottom: 0
+		opacity: 1
+
+@keyframes slider__box_show
+	0%
+		transform: rotateX(90deg)
+	20%
+		transform: rotateX(0)
+	100%
+		transform: rotateX(0)
+
+.slider
+	overflow: hidden
+	position: relative
+	background-color: #CBE0EE
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		background-color: #E5F0F7
+		width: 100%
+		height: 50%
+	&__box-arrow
+		width: 50%
+		height: 100%
+		display: flex
+		justify-content: space-between
+		align-items: center
+		position: absolute
+		left: 25%
+		z-index: 2
+	&__arrow
+		font-size: 20px
+		cursor: pointer
+		color: $text
+	&__list
+		width: 100%
+		display: flex
+		position: relative
+		&.show
+			animation: slider__item_show 3s linear
+	&__item
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-shrink: 0
+		width: 50%
+		height: 400px
+		position: relative
+		right: 25%
+		&:nth-child(2)
+			.slider
+				&__box
+					background-color: #ffffff
+					animation: slider__box_show 5s linear
+				&__name
+					color: $text
+					text-stroke: 0
+					-webkit-text-stroke: 0
+	&__box
+		display: flex
+		align-items: center
+		justify-content: center
+		max-width: 550px
+		min-width: 300px
+		width: 100%
+		height: 80%
+	&__name
+		font-size: 80px
+		text-transform: uppercase
+		font-family: Arial, Helvetica, sans-serif
+		color: transparent
+		text-stroke: 1px $text
+		-webkit-text-stroke: 1px $text
+		position: absolute
